@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantiverse | POSN camp 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ตั้งค่าพื้นฐาน */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f0f2f5; /* สีพื้นหลังโทนสว่างดูสะอาดตา */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2c3e50;
+        }
+
+        /* กล่องเนื้อหา (Card) */
+        .content-area {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* เงาฟุ้งๆ ดูพรีเมียม */
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        .content-area:hover {
+            transform: translateY(-5px); /* ขยับขึ้นเล็กน้อยเวลาเอาเมาส์วาง */
+        }
+
+        /* ส่วนข้อความ */
+        .message {
+            margin-bottom: 30px;
+        }
+
+        .message p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* ตกแต่งปุ่ม Go Back */
+        .back-btn {
+            background-color: #34495e; /* เปลี่ยนเป็นสีเข้มให้ดูหนักแน่น */
+            border: none;
+            padding: 0; /* ให้ link คุมพื้นที่ทั้งหมด */
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%; /* ให้ปุ่มกว้างเต็ม card */
+        }
+
+        .back-btn a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            display: block;
+            padding: 15px 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: scale(1.02); /* ขยายใหญ่ขึ้นนิดหน่อย */
+        }
+
+        /* เพิ่ม Icon เล็กน้อย (ถ้าต้องการ) */
+        .icon-box {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-area">
+        <div class="icon-box">🛠️</div>
+        
+        <div class="message">
+            <p>ขออภัยในความไม่สะดวก<br><b>เนื้อหากำลังอยู่ระหว่างการปรับปรุง</b></p>
+        </div>
+
+        <button class="back-btn">
+            <a href="index.html">← Go back</a>
+        </button>
+    </div>
+
+</body>
+</html>

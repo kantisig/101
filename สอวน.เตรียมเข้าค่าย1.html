@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantiverse | Pre POSN camp 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .subject-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .math-link {
+            display: block;
+            padding: 12px;
+            background: #f8f9fa;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .math-link:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-btn a {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #95a5a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .back-btn a:hover {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="subject-card">
+            <h1>Algebra</h1>
+            <div class="link-group">
+                <a href="https://drive.google.com/file/d/1q1xadrmR8P07Xf9MUxaq0nwehZ8RTwbI/view?usp=drive_link" class="math-link" target="_blank">
+                    📝 Problem Set
+                </a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h1>Geometry</h1>
+            
+            <h3>Lecture Notes</h3>
+            <div class="link-group">
+                <a href="https://drive.google.com/file/d/1e0DJBSua50ZZeaxcP2AgyyM3y3UQ0Eg6/view?usp=sharing" class="math-link" target="_blank">
+                    📖 View Lecture
+                </a>
+            </div>
+
+            <h3>Practice Problems</h3>
+            <div class="link-group">
+                <a href="https://drive.google.com/file/d/14RDSti6rBg-Cth5cN_Ts_7POnC4jsY4f/view?usp=drive_link" class="math-link" target="_blank">
+                    📝 Problem I
+                </a>
+            </div>
+        </div>
+
+        <div class="back-btn">
+            <a href="index.html">← Go Back </a>
+        </div>
+    </div>
+
+</body>
+</html>

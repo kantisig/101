@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantiverse | POSN camp 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Subject Grid */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .subject-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            text-align: center;
+            border-top: 6px solid var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .subject-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+            background: #f1f5f9;
+            color: var(--primary-color);
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Exam Section */
+        .exam-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.2);
+        }
+
+        .exam-btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        /* --- ปรับปรุงส่วน Go Back ให้เหมือนอันแรก --- */
+        .back-btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            background-color: #95a5a6; /* สีเทาจากดีไซน์แรก */
+            border: none;
+            padding: 0; /* ให้ <a> คุมพื้นที่ */
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .back-btn a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            display: block;
+            padding: 12px 35px; /* ขนาดความกว้างของปุ่ม */
+        }
+
+        .empty-state {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.9rem;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>POSN Camp 2</h1>
+            <p>เอกสารประกอบการเรียนและคลังโจทย์สำหรับค่าย 2</p>
+        </div>
+
+        <div class="subject-grid">
+            <div class="subject-card">
+                <h2>Number Theory</h2>
+                <p class="empty-state">⏳ Coming soon</p>
+            </div>
+
+            <div class="subject-card">
+                <h2>Geometry</h2>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/file/d/1NJ-e7Z4FiKDU0IaaLg1A54Wwg1fdZKQ3/view?usp=sharing" class="btn-link" target="_blank">📄 Lecture</a>
+                </div>
+            </div>
+
+            <div class="subject-card">
+                <h2>Combinatorics</h2>
+                <p class="empty-state">⏳ Coming soon</p>
+            </div>
+
+            <div class="subject-card">
+                <h2>Functional Equation</h2>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/file/d/1Ni9uEarf3yB5DQV3pfCKo316uaXhUIEm/view?usp=drive_link" class="btn-link" target="_blank">📄 Lecture</a>
+                    <a href="https://drive.google.com/file/d/1Kif3iDoxXCNC7uCzOlaesJerGKpQRpca/view?usp=drive_link" class="btn-link" target="_blank">📝 Problem</a>
+                </div>
+            </div>
+
+            <div class="subject-card">
+                <h2>Inequality</h2>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/file/d/12GyWyMwGaIG9DTXPyR9GvSD0hjzSRRWz/view?usp=sharing" class="btn-link" target="_blank">📄 Lecture</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="exam-section">
+            <h2>🏆 ข้อสอบคัดผู้แทนศูนย์ ม.วลัยลักษณ์</h2>
+            <a href="https://drive.google.com/file/d/1Q0jdleNFa3So4mnatfFvA9XWGpLxS4nm/view?usp=sharing" class="exam-btn" target="_blank">ดาวน์โหลดปี 2023</a>
+        </div>
+
+        <div class="back-btn-container">
+            <button class="back-btn">
+                <a href="index.html">← Go Back</a>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

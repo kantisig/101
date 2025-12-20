@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Lectures | Kantiverse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a; /* สีน้ำเงินสไตล์มหาวิทยาลัย */
+            --accent-blue: #3b82f6;
+            --bg-light: #f8fafc;
+            --text-main: #1e293b;
+        }
+
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .header-box {
+            margin-bottom: 30px;
+        }
+
+        .header-box h1 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .lecture-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .lecture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .subject-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .download-link:hover {
+            background-color: var(--accent-blue);
+        }
+
+        .back-nav {
+            margin-top: 30px;
+        }
+
+        .back-nav a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .back-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* ตกแต่งสัญลักษณ์แทนไฟล์ */
+        .file-icon {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-box">
+            <h1>University Courses</h1>
+            <p style="color: #64748b;">รวบรวมเลกเชอร์ระดับมหาวิทยาลัย</p>
+        </div>
+
+        <div class="lecture-card">
+            <span class="subject-title">Integral</span>
+            <a href="https://drive.google.com/file/d/1FIkZRfw_OsHrv6BW5Grwnc2y-StgGNKM/view?usp=drive_link" class="download-link" target="_blank">
+                <span class="file-icon">📄</span> Problem
+            </a>
+        </div>
+
+        <div class="lecture-card">
+            <span class="subject-title">ODE Order 1</span>
+            <a href="https://drive.google.com/file/d/1GILqhhvzXh1Y-eEn_QkeC_bEu3wWlFts/view?usp=sharing" class="download-link" target="_blank">
+                <span class="file-icon">📄</span> View Lecture Note
+            </a>
+        </div>
+
+        <nav class="back-nav">
+            <a href="index.html">
+                <span>←</span> Back to Main Menu
+            </a>
+        </nav>
+    </div>
+
+</body>
+</html>

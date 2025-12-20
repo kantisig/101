@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantiverse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        header, section, footer {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .profile-info h3 {
+            font-weight: 400;
+            font-size: 1.1rem;
+            margin: 8px 0;
+        }
+
+        .education-list {
+            text-align: left;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .lecture-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lecture-item {
+            background: #f8f9fa;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.2s, background 0.2s;
+            border-radius: 4px;
+        }
+
+        .lecture-item:hover {
+            transform: translateX(10px);
+            background: #eef2f7;
+        }
+
+        .lecture-item a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        footer {
+            background: transparent;
+            box-shadow: none;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* ตกแต่งไฮไลท์สำหรับ Paper */
+        .paper-link {
+            color: #e67e22 !important;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h2>Profile</h2>
+            <h1>นายกันตินันท์ เสนอินทร์ (Mr. Kantinan Senin)</h1>
+            <p>นักศึกษาคณะวิทยาศาสตร์ สาขาคณิตศาสตร์<br><strong>มหาวิทยาลัยมหิดล</strong></p>
+            
+            <hr>
+            
+            <div class="education-list">
+                <strong>ประวัติการศึกษา:</strong>
+                <ul style="list-style: none; padding: 0;">
+                    <li>• <strong>2567 - ปัจจุบัน:</strong> มหาวิทยาลัยมหิดล</li>
+                    <li>• <strong>2564 - 2566:</strong> โรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย นครศรีธรรมราช</li>
+                    <li>• <strong>2561 - 2563:</strong> โรงเรียนสาธิตเทศบาลวัดเพชรจริก</li>
+                </ul>
+            </div>
+
+            <div class="Contact">
+                <h4>Email: kantinan4610@gmail.com</h4>
+                <h4>Facebook: <a href="https://www.facebook.com/tonnam.senin" target="_blank">Kantinan Senin</a></h4>
+                <h4>IG: <a href="https://www.instagram.com/k.kxntinxn/" target="_blank">k.kxntinxn</a></h4>
+            </div>
+        </header>
+
+        <section>
+            <h2>Lectures & Publications</h2>
+            <div class="lecture-grid">
+                <div class="lecture-item"><a href="สอวน.เตรียมเข้าค่าย1.html">📚 สอวน. เตรียมเข้าค่าย 1</a></div>
+                <div class="lecture-item"><a href="สอวน.ค่าย1.html">📚 สอวน. ค่าย 1</a></div>
+                <div class="lecture-item"><a href="สอวน.ค่าย2.html">📚 สอวน. ค่าย 2</a></div>
+                <div class="lecture-item"><a href="มหาวิทยาลัย.html">🏛️ มหาวิทยาลัย</a></div>
+                
+                <div class="lecture-item">
+                    <a href="https://drive.google.com/file/d/1mC-Z1ArHRUJK5r04q3-rwxMeurHhThMo/view?usp=sharing" target="_blank">
+                        📊 Slide: Equation 3<sup>x</sup>x + p7<sup>y</sup> = z<sup>2</sup>
+                    </a>
+                </div>
+                
+                <div class="lecture-item">
+                    <a href="https://drive.google.com/file/d/138_pBko0pDbp67m79cn1jwvAL6DxBXvo/view?usp=sharing" target="_blank">
+                        ⌨️ การพิมพ์ภาษาไทยใน LaTeX
+                    </a>
+                </div>
+
+                <div class="lecture-item">
+                    <a href="https://www.researchgate.net/publication/396907965_On_the_Exponential_Diophantine_Equation_95x_-_py_z4" target="_blank" class="paper-link">
+                        📄 Paper: 9(5<sup>x</sup>) - p<sup>y</sup> = z<sup>4</sup>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 - Made by Kantinan Senin</p>
+        </footer>
+    </div>
+
+</body>
+</html>
