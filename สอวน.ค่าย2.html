@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kantiverse | POSN camp 2</title>
+    <title>Kantiverse | POSN Camp 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* --- 1. ระบบ Theme (Variables) --- */
         :root {
             --primary-color: #2c3e50;
             --accent-color: #e74c3c;
@@ -13,6 +14,21 @@
             --card-bg: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
+            --btn-bg: #f1f5f9;
+            --btn-border: #e2e8f0;
+            --exam-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --accent-color: #ff6b6b;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --btn-bg: #3d3d3d;
+            --btn-border: #444;
+            --exam-gradient: linear-gradient(135deg, #1e293b 0%, #2c3e50 100%);
         }
 
         body {
@@ -22,6 +38,23 @@
             margin: 0;
             padding: 40px 20px;
             line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* ปุ่มสลับโหมด */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -59,7 +92,7 @@
             background: var(--card-bg);
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             text-align: center;
             border-top: 6px solid var(--primary-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,25 +127,29 @@
             font-size: 0.9rem;
             font-weight: 600;
             transition: 0.2s;
-            background: #f1f5f9;
-            color: var(--primary-color);
-            border: 1px solid #e2e8f0;
+            background: var(--btn-bg);
+            color: var(--text-main);
+            border: 1px solid var(--btn-border);
         }
 
         .btn-link:hover {
             background: var(--primary-color);
-            color: white;
+            color: var(--bg-color);
         }
 
         /* Exam Section */
         .exam-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: var(--exam-gradient);
             color: white;
             padding: 40px;
             border-radius: 24px;
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .exam-section h2 {
+            color: white; /* บังคับให้หัวข้อในส่วนนี้เป็นสีขาวเสมอ */
         }
 
         .exam-btn {
@@ -127,48 +164,53 @@
             transition: 0.3s;
         }
 
-        /* --- ปรับปรุงส่วน Go Back ให้เหมือนอันแรก --- */
+        .exam-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        /* --- ปุ่ม Go Back สไตล์เดียวกับหน้ารูท --- */
         .back-btn-container {
             text-align: center;
             margin-top: 40px;
         }
 
         .back-btn {
-            background-color: #95a5a6; /* สีเทาจากดีไซน์แรก */
+            background-color: #95a5a6;
             border: none;
-            padding: 0; /* ให้ <a> คุมพื้นที่ */
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             display: inline-block;
         }
 
-        .back-btn:hover {
-            background-color: #7f8c8d;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
         .back-btn a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: block;
-            padding: 12px 35px; /* ขนาดความกว้างของปุ่ม */
+            padding: 10px 30px;
+        }
+
+        .back-btn:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-2px);
         }
 
         .empty-state {
-            color: #94a3b8;
+            color: var(--text-muted);
             font-style: italic;
             font-size: 0.9rem;
-            background: #f8fafc;
+            background: var(--btn-bg);
             padding: 10px;
             border-radius: 8px;
         }
     </style>
 </head>
 <body>
+
+    <button id="theme-toggle">🌓 Switch Mode</button>
 
     <div class="container">
         <div class="header">
@@ -179,48 +221,60 @@
         <div class="subject-grid">
             <div class="subject-card">
                 <h2>Number Theory</h2>
-                <p class="empty-state">⏳ Coming soon</p>
+                <p class="empty-state"> Coming soon</p>
             </div>
 
             <div class="subject-card">
                 <h2>Geometry</h2>
                 <div class="btn-group">
-                    <a href="https://drive.google.com/file/d/1NJ-e7Z4FiKDU0IaaLg1A54Wwg1fdZKQ3/view?usp=sharing" class="btn-link" target="_blank">📄 Lecture</a>
+                    <a href="https://drive.google.com/file/d/1NJ-e7Z4FiKDU0IaaLg1A54Wwg1fdZKQ3/view?usp=sharing" class="btn-link" target="_blank"> Lecture</a>
                 </div>
             </div>
 
             <div class="subject-card">
                 <h2>Combinatorics</h2>
-                <p class="empty-state">⏳ Coming soon</p>
+                <p class="empty-state"> Coming soon</p>
             </div>
 
             <div class="subject-card">
                 <h2>Functional Equation</h2>
                 <div class="btn-group">
-                    <a href="https://drive.google.com/file/d/1Ni9uEarf3yB5DQV3pfCKo316uaXhUIEm/view?usp=drive_link" class="btn-link" target="_blank">📄 Lecture</a>
-                    <a href="https://drive.google.com/file/d/1Kif3iDoxXCNC7uCzOlaesJerGKpQRpca/view?usp=drive_link" class="btn-link" target="_blank">📝 Problem</a>
+                    <a href="https://drive.google.com/file/d/1Ni9uEarf3yB5DQV3pfCKo316uaXhUIEm/view?usp=drive_link" class="btn-link" target="_blank"> Lecture</a>
+                    <a href="https://drive.google.com/file/d/1Kif3iDoxXCNC7uCzOlaesJerGKpQRpca/view?usp=drive_link" class="btn-link" target="_blank"> Problem</a>
                 </div>
             </div>
 
             <div class="subject-card">
                 <h2>Inequality</h2>
                 <div class="btn-group">
-                    <a href="https://drive.google.com/file/d/12GyWyMwGaIG9DTXPyR9GvSD0hjzSRRWz/view?usp=sharing" class="btn-link" target="_blank">📄 Lecture</a>
+                    <a href="https://drive.google.com/file/d/12GyWyMwGaIG9DTXPyR9GvSD0hjzSRRWz/view?usp=sharing" class="btn-link" target="_blank">Lecture</a>
                 </div>
             </div>
         </div>
 
-        <div class="exam-section">
-            <h2>🏆 ข้อสอบคัดผู้แทนศูนย์ ม.วลัยลักษณ์</h2>
-            <a href="https://drive.google.com/file/d/1Q0jdleNFa3So4mnatfFvA9XWGpLxS4nm/view?usp=sharing" class="exam-btn" target="_blank">ดาวน์โหลดปี 2023</a>
-        </div>
-
         <div class="back-btn-container">
-            <button class="back-btn">
+            <div class="back-btn">
                 <a href="index.html">← Go Back</a>
-            </button>
+            </div>
         </div>
     </div>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        applyTheme();
+
+        toggleBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>

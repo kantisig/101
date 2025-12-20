@@ -6,12 +6,26 @@
     <title>Kantiverse</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* 1. ส่วนกำหนดสี (Variables) */
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
             --bg-color: #f4f7f6;
             --card-bg: #ffffff;
             --text-color: #333;
+            --hr-color: #eee;
+            --item-bg: #f8f9fa;
+        }
+
+        /* สีสำหรับ Dark Mode */
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --accent-color: #5dade2;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --hr-color: #444;
+            --item-bg: #3d3d3d;
         }
 
         body {
@@ -21,6 +35,23 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีดูนุ่มนวล */
+        }
+
+        /* 2. ปุ่มสลับโหมดแบบลอย (Floating Toggle) */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -43,12 +74,6 @@
             margin-top: 0;
         }
 
-        .profile-info h3 {
-            font-weight: 400;
-            font-size: 1.1rem;
-            margin: 8px 0;
-        }
-
         .education-list {
             text-align: left;
             display: inline-block;
@@ -63,7 +88,7 @@
         }
 
         .lecture-item {
-            background: #f8f9fa;
+            background: var(--item-bg);
             border-left: 5px solid var(--accent-color);
             transition: transform 0.2s, background 0.2s;
             border-radius: 4px;
@@ -71,7 +96,11 @@
 
         .lecture-item:hover {
             transform: translateX(10px);
-            background: #eef2f7;
+            background: var(--accent-color);
+        }
+
+        .lecture-item:hover a {
+            color: white;
         }
 
         .lecture-item a {
@@ -82,6 +111,11 @@
             font-weight: 600;
         }
 
+        .Contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
         footer {
             background: transparent;
             box-shadow: none;
@@ -89,7 +123,6 @@
             color: #7f8c8d;
         }
 
-        /* ตกแต่งไฮไลท์สำหรับ Paper */
         .paper-link {
             color: #e67e22 !important;
         }
@@ -97,12 +130,14 @@
         hr {
             border: 0;
             height: 1px;
-            background: #eee;
+            background: var(--hr-color);
             margin: 20px 0;
         }
     </style>
 </head>
 <body>
+
+    <button id="theme-toggle">🌓 Switch Mode</button>
 
     <div class="container">
         <header>
@@ -122,35 +157,35 @@
             </div>
 
             <div class="Contact">
-                <h4>Email: kantinan4610@gmail.com</h4>
-                <h4>Facebook: <a href="https://www.facebook.com/tonnam.senin" target="_blank">Kantinan Senin</a></h4>
-                <h4>IG: <a href="https://www.instagram.com/k.kxntinxn/" target="_blank">k.kxntinxn</a></h4>
+                <p><strong>Email:</strong> kantinan4610@gmail.com</p>
+                <p><strong>Facebook:</strong> <a href="https://www.facebook.com/tonnam.senin" target="_blank">Kantinan Senin</a></p>
+                <p><strong>IG:</strong> <a href="https://www.instagram.com/k.kxntinxn/" target="_blank">k.kxntinxn</a></p>
             </div>
         </header>
 
         <section>
             <h2>Lectures & Publications</h2>
             <div class="lecture-grid">
-                <div class="lecture-item"><a href="สอวน.เตรียมเข้าค่าย1.html">📚 สอวน. เตรียมเข้าค่าย 1</a></div>
-                <div class="lecture-item"><a href="สอวน.ค่าย1.html">📚 สอวน. ค่าย 1</a></div>
-                <div class="lecture-item"><a href="สอวน.ค่าย2.html">📚 สอวน. ค่าย 2</a></div>
-                <div class="lecture-item"><a href="มหาวิทยาลัย.html">🏛️ มหาวิทยาลัย</a></div>
+                <div class="lecture-item"><a href="สอวน.เตรียมเข้าค่าย1.html"> สอวน. เตรียมเข้าค่าย 1</a></div>
+                <div class="lecture-item"><a href="สอวน.ค่าย1.html"> สอวน. ค่าย 1</a></div>
+                <div class="lecture-item"><a href="สอวน.ค่าย2.html"> สอวน. ค่าย 2</a></div>
+                <div class="lecture-item"><a href="มหาวิทยาลัย.html"> มหาวิทยาลัย</a></div>
                 
                 <div class="lecture-item">
                     <a href="https://drive.google.com/file/d/1mC-Z1ArHRUJK5r04q3-rwxMeurHhThMo/view?usp=sharing" target="_blank">
-                        📊 Slide: Equation 3<sup>x</sup>x + p7<sup>y</sup> = z<sup>2</sup>
+                         Slide: Equation 3<sup>x</sup> + p7<sup>y</sup> = z<sup>2</sup>
                     </a>
                 </div>
                 
                 <div class="lecture-item">
                     <a href="https://drive.google.com/file/d/138_pBko0pDbp67m79cn1jwvAL6DxBXvo/view?usp=sharing" target="_blank">
-                        ⌨️ การพิมพ์ภาษาไทยใน LaTeX
+                        การพิมพ์ภาษาไทยใน LaTeX
                     </a>
                 </div>
 
                 <div class="lecture-item">
                     <a href="https://www.researchgate.net/publication/396907965_On_the_Exponential_Diophantine_Equation_95x_-_py_z4" target="_blank" class="paper-link">
-                        📄 Paper: 9(5<sup>x</sup>) - p<sup>y</sup> = z<sup>4</sup>
+                        Paper: 9(5<sup>x</sup>) - p<sup>y</sup> = z<sup>4</sup>
                     </a>
                 </div>
             </div>
@@ -161,5 +196,25 @@
         </footer>
     </div>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        
+        // ฟังก์ชันตรวจสอบและใช้ธีม
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        // เรียกใช้ทันทีที่โหลดหน้า
+        applyTheme();
+
+        toggleBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme); // บันทึกลงเครื่อง
+        });
+    </script>
 </body>
 </html>

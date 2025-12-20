@@ -1,0 +1,44 @@
+/* global.css */
+:root {
+    /* โหมดสว่าง */
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --item-bg: #f8f9fa;
+    --hr-color: #eee;
+}
+
+[data-theme="dark"] {
+    /* โหมดมืด */
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #e0e0e0;
+    --primary-color: #ecf0f1;
+    --accent-color: #5dade2;
+    --item-bg: #3d3d3d;
+    --hr-color: #444;
+}
+
+/* ตั้งค่าพื้นฐานให้ทุกหน้า */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ปุ่ม Toggle ที่จะปรากฏทุกหน้า */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--accent-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.8rem;
+}

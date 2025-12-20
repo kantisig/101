@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kantiverse | Pre POSN camp 1</title>
+    <title>Kantiverse | Pre POSN Camp 1</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* --- 1. ระบบ Theme (Variables) --- */
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
             --bg-color: #f4f7f6;
             --card-bg: #ffffff;
             --text-color: #333;
+            --text-sub: #7f8c8d;
+            --link-bg: #f8f9fa;
+            --link-border: #eee;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --accent-color: #5dade2;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --text-sub: #bdc3c7;
+            --link-bg: #3d3d3d;
+            --link-border: #444;
         }
 
         body {
@@ -24,12 +39,29 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* ปุ่มสลับโหมด */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .container {
             width: 90%;
             max-width: 600px;
-            margin: 20px auto;
+            margin: 40px auto;
         }
 
         .subject-card {
@@ -39,6 +71,12 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 20px;
             text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--link-border);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
         }
 
         h1 {
@@ -51,12 +89,12 @@
         }
 
         h3 {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-top: 15px;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-top: 20px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .link-group {
@@ -69,50 +107,60 @@
         .math-link {
             display: block;
             padding: 12px;
-            background: #f8f9fa;
+            background: var(--link-bg);
             color: var(--accent-color);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid #eee;
+            border: 1px solid var(--link-border);
         }
 
         .math-link:hover {
             background: var(--accent-color);
             color: white;
-            transform: translateY(-2px);
+            transform: scale(1.02);
         }
 
-        .back-btn {
-            margin-top: 20px;
+        /* --- ปุ่ม Go Back สไตล์เดียวกับทุกหน้า --- */
+        .back-btn-container {
+            margin-top: 30px;
             text-align: center;
         }
 
-        .back-btn a {
-            display: inline-block;
-            padding: 10px 25px;
+        .back-btn {
             background-color: #95a5a6;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .back-btn a:hover {
+        .back-btn a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: block;
+            padding: 10px 30px;
+        }
+
+        .back-btn:hover {
             background-color: #7f8c8d;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
+
+    <button id="theme-toggle">🌓 Switch Mode</button>
 
     <div class="container">
         <div class="subject-card">
             <h1>Algebra</h1>
             <div class="link-group">
                 <a href="https://drive.google.com/file/d/1q1xadrmR8P07Xf9MUxaq0nwehZ8RTwbI/view?usp=drive_link" class="math-link" target="_blank">
-                    📝 Problem Set
+                     Problem Set
                 </a>
             </div>
         </div>
@@ -123,22 +171,42 @@
             <h3>Lecture Notes</h3>
             <div class="link-group">
                 <a href="https://drive.google.com/file/d/1e0DJBSua50ZZeaxcP2AgyyM3y3UQ0Eg6/view?usp=sharing" class="math-link" target="_blank">
-                    📖 View Lecture
+                     Lecture
                 </a>
             </div>
 
             <h3>Practice Problems</h3>
             <div class="link-group">
                 <a href="https://drive.google.com/file/d/14RDSti6rBg-Cth5cN_Ts_7POnC4jsY4f/view?usp=drive_link" class="math-link" target="_blank">
-                    📝 Problem I
+                     Problem I
                 </a>
             </div>
         </div>
 
-        <div class="back-btn">
-            <a href="index.html">← Go Back </a>
+        <div class="back-btn-container">
+            <div class="back-btn">
+                <a href="index.html">← Go Back </a>
+            </div>
         </div>
     </div>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        applyTheme();
+
+        toggleBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>

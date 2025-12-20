@@ -6,22 +6,53 @@
     <title>Kantiverse | University Lectures</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* --- 1. ระบบ Variable สำหรับสลับสี --- */
         :root {
             --primary-blue: #1e3a8a; 
             --accent-blue: #3b82f6;
-            --bg-light: #f8fafc;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
             --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --primary-blue: #60a5fa; 
+            --accent-blue: #3b82f6;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+            --border-color: #444;
         }
 
         body {
             font-family: 'Sarabun', 'Inter', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* ปุ่มสลับโหมด (ใส่ไว้เพื่อให้กดจากหน้านี้ได้ด้วย) */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--accent-blue);
+            background: var(--card-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -43,18 +74,18 @@
         }
 
         .lecture-card {
-            background: white;
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-bottom: 20px;
             transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
         }
 
         .lecture-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
         .subject-title {
@@ -70,7 +101,7 @@
             align-items: center;
             gap: 8px;
             background-color: var(--primary-blue);
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 8px;
@@ -79,24 +110,29 @@
             transition: background 0.2s;
         }
 
-        .download-link:hover {
-            background-color: var(--accent-blue);
+        [data-theme="dark"] .download-link {
+            color: #000; /* ในโหมดมืด ปุ่มสีสว่างขึ้น ตัวอักษรควรเข้ม */
+            background-color: var(--primary-blue);
         }
 
-        /* --- ปรับปรุงปุ่ม Go Back ให้เหมือนกัน --- */
+        .download-link:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* --- ปรับปรุงปุ่ม Go Back ให้กะทัดรัดพอดีข้อความ --- */
         .back-btn-container {
             margin-top: 40px;
             text-align: center;
         }
 
         .back-btn {
-            background-color: #95a5a6; /* สีเทาสไตล์เดียวกับหน้าอื่น */
+            background-color: #95a5a6;
             border: none;
-            padding: 0; 
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: inline-block;
+            display: inline-block; /* ทำให้กว้างเท่าเนื้อหา */
         }
 
         .back-btn:hover {
@@ -109,9 +145,9 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: block;
-            padding: 12px 35px;
+            padding: 10px 25px; /* ปรับขนาดให้เล็กลงกะทัดรัด */
         }
 
         .file-icon {
@@ -121,23 +157,25 @@
 </head>
 <body>
 
+    <button id="theme-toggle">🌓 Switch Mode</button>
+
     <div class="container">
         <div class="header-box">
             <h1>University Courses</h1>
-            <p style="color: #64748b;">รวบรวมเลกเชอร์ระดับมหาวิทยาลัย</p>
+            <p style="color: var(--text-sub);">รวบรวมเลกเชอร์ระดับมหาวิทยาลัย</p>
         </div>
 
         <div class="lecture-card">
             <span class="subject-title">Integral</span>
             <a href="https://drive.google.com/file/d/1FIkZRfw_OsHrv6BW5Grwnc2y-StgGNKM/view?usp=drive_link" class="download-link" target="_blank">
-                <span class="file-icon">📄</span> Problem
+                 Problem
             </a>
         </div>
 
         <div class="lecture-card">
             <span class="subject-title">ODE Order 1</span>
             <a href="https://drive.google.com/file/d/1GILqhhvzXh1Y-eEn_QkeC_bEu3wWlFts/view?usp=sharing" class="download-link" target="_blank">
-                <span class="file-icon">📄</span> View Lecture Note
+                 Lecture Note
             </a>
         </div>
 
@@ -148,5 +186,23 @@
         </div>
     </div>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        applyTheme();
+
+        toggleBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
