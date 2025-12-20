@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1e3a8a; /* สีน้ำเงินสไตล์มหาวิทยาลัย */
+            --primary-blue: #1e3a8a; 
             --accent-blue: #3b82f6;
             --bg-light: #f8fafc;
             --text-main: #1e293b;
@@ -28,6 +28,7 @@
             width: 90%;
             max-width: 500px;
             text-align: center;
+            padding: 40px 0;
         }
 
         .header-box {
@@ -82,25 +83,37 @@
             background-color: var(--accent-blue);
         }
 
-        .back-nav {
-            margin-top: 30px;
+        /* --- ปรับปรุงปุ่ม Go Back ให้เหมือนกัน --- */
+        .back-btn-container {
+            margin-top: 40px;
+            text-align: center;
         }
 
-        .back-nav a {
-            color: #64748b;
+        .back-btn {
+            background-color: #95a5a6; /* สีเทาสไตล์เดียวกับหน้าอื่น */
+            border: none;
+            padding: 0; 
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .back-btn a {
+            color: white;
             text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.2s;
+            font-weight: bold;
+            font-size: 1rem;
+            display: block;
+            padding: 12px 35px;
         }
 
-        .back-nav a:hover {
-            color: var(--primary-blue);
-        }
-
-        /* ตกแต่งสัญลักษณ์แทนไฟล์ */
         .file-icon {
             font-size: 1.2rem;
         }
@@ -128,11 +141,11 @@
             </a>
         </div>
 
-        <nav class="back-nav">
-            <a href="index.html">
-                <span>←</span> Back to Main Menu
-            </a>
-        </nav>
+        <div class="back-btn-container">
+            <button class="back-btn">
+                <a href="index.html">← Go Back</a>
+            </button>
+        </div>
     </div>
 
 </body>
