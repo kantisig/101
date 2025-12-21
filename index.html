@@ -6,7 +6,6 @@
     <title>Kantiverse</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* 1. ส่วนกำหนดสี (Variables) */
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
@@ -17,7 +16,6 @@
             --item-bg: #f8f9fa;
         }
 
-        /* สีสำหรับ Dark Mode */
         [data-theme="dark"] {
             --primary-color: #ecf0f1;
             --accent-color: #5dade2;
@@ -35,10 +33,9 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีดูนุ่มนวล */
+            transition: all 0.3s ease; 
         }
 
-        /* 2. ปุ่มสลับโหมดแบบลอย (Floating Toggle) */
         #theme-toggle {
             position: fixed;
             top: 20px;
@@ -199,13 +196,11 @@
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         
-        // ฟังก์ชันตรวจสอบและใช้ธีม
         function applyTheme() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         }
-
-        // เรียกใช้ทันทีที่โหลดหน้า
+        
         applyTheme();
 
         toggleBtn.addEventListener('click', () => {
